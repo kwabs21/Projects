@@ -7,7 +7,7 @@ revolved around Microsoft Excel, where I gained mastery over MS Office applicati
 
 <h2>Excel VBA and SPSS Proficiency</h2>
 One of my significant early coding projects was the development of a "Dewatering Sheet" 
-using Excel VBA for my boss during my National Service. This project marked my entry into 
+using Excel VBA for my boss during one of my internships. This project marked my entry into 
 mainstream coding and provided me with valuable hands-on experience. Additionally, I am 
 proficient in SPSS (Statistical Package for the Social Sciences), which I have utilized for 
 various projects, including assisting MSc students with their research endeavours. My 
