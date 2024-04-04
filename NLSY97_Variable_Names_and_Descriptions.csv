@@ -121,3 +121,4 @@ REGNE,D,Census region North east
 REGNC,D,Census region North central
 REGW,D,Census region West
 REGS,D,Census region South
+git rm "NLSY97_Variable_Names_and_Descriptions.csv"
