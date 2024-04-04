@@ -1,5 +1,5 @@
-<h1>Portfolio Readme</h1>\n
-About Me
+<h1>Portfolio Readme</h1>
+<h2>About Me</h2>
 Hello! Welcome to my online portfolio. My name is Kwabena Danso Ntim. I am a self-taught 
 programmer with a background in engineering and project management. My journey into the 
 world of coding began with self-learning from free online resources. Initially, my expertise 
