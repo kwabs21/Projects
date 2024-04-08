@@ -40,6 +40,10 @@ insights into data-driven projects seamlessly.
 Currently, I am actively working towards obtaining my TensorFlow certification, which will 
 further solidify my expertise in machine learning and deep learning technologies.
 
+
+Kindly use the link below to acess some other projects (other than python) that I worked on: 
+https://drive.google.com/drive/folders/1Pszd3F_Ua6GL_oWoToyxMAOYUHFkm0HG?usp=sharing
+
 <h2>Contact Information</h2>
 <h3>- Email: kntim595@gmail.com</h3>
 <h3>- Mobile: +233 555 039 682</h3>
