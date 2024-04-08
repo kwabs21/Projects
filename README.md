@@ -41,8 +41,8 @@ Currently, I am actively working towards obtaining my TensorFlow certification, 
 further solidify my expertise in machine learning and deep learning technologies.
 
 
-<h5>Kindly use the link below to acess some other projects (other than python) that I worked on:</h5>
-https://drive.google.com/drive/folders/1Pszd3F_Ua6GL_oWoToyxMAOYUHFkm0HG?usp=sharing
+<h5>Kindly use the link below to acess some other projects (other than python) that I worked on:
+https://drive.google.com/drive/folders/1Pszd3F_Ua6GL_oWoToyxMAOYUHFkm0HG?usp=sharing</h5>
 
 <h2>Contact Information</h2>
 <h3>- Email: kntim595@gmail.com</h3>
