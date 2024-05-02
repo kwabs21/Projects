@@ -14,19 +14,20 @@ various projects, including assisting MSc students with their research endeavour
 expertise in SPSS allows me to analyze and interpret data effectively, contributing to 
 insightful research outcomes.
 
-<h2>Transition to Python and Data Science</h2>
+<h2>Transition to Python (Data Analytics) </h2>
 Following the completion of the "Dewatering Sheet" project, I realized the vast potential in 
 coding and decided to delve deeper. My exploration led me to Python, where I ventured into 
-the field of data science. Leveraging libraries such as NumPy, pandas, and Matplotlib, I 
+the field of data analytics and mahine learning. Leveraging libraries such as NumPy, pandas & Matplotlib, I recently 
 analyzed data for TonyCee Mining Services, a mining contractor undertaking a reclamation 
 project in Goldfields Ghana Limited, Damang. From the data gathered, I was able to 
-streamline operations and cut operational costs by 27%.
+streamline operations and cut operational costs by 27%. 
 
-<h2?Machine Learning Projects</h2>
+<h2?Machine Learning Projects & Django ApIs</h2>
 Driven by a passion for learning and innovation, I further expanded my skills into machine 
 learning. I have undertaken several machine learning projects, leveraging libraries such as 
-scikit-learn, Streamlit and TensorFlow. These projects showcase my ability to apply machine 
-learning algorithms to real-world problems and drive business outcomes.
+scikit-learn and TensorFlow. These projects showcase my ability to apply machine 
+learning algorithms to real-world problems and drive business outcomes. I also utilize Django's REST Framework to create APIs 
+where data is taken from differnt sources and utilized for the betterment of the project I work on.
 
 <h2>Engineering and Project Management Background</h2>
 My background in engineering and project management has significantly influenced my 
