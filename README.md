@@ -22,13 +22,11 @@ analyzed data for TonyCee Mining Services, a mining contractor undertaking a rec
 project in Goldfields Ghana Limited, Damang. From the data gathered, I was able to 
 streamline operations and cut operational costs by 27%. 
 
-<h2>Machine Learning Projects & Django ApIs</h2>
+<h2>Machine Learning Projects </h2>
 Driven by a passion for learning and innovation, I further expanded my skills into machine 
 learning. I have undertaken several machine learning projects, leveraging libraries such as 
 scikit-learn and TensorFlow. These projects showcase my ability to apply machine 
-learning algorithms to real-world problems and drive business outcomes. I also utilize Django's REST Framework to create APIs 
-where data is taken from differnt sources and utilized for the betterment of the project I work on. I just recently completed a facial recognition 
-project which can be found in portfolio
+learning algorithms to real-world problems and drive business outcomes.
 
 <h2>Engineering and Project Management Background</h2>
 My background in engineering and project management has significantly influenced my 
