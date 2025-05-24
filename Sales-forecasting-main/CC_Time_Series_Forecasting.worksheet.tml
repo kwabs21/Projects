@@ -1,0 +1,541 @@
+guid: 58290bff-7b2a-4483-ba34-cba64dea57fb
+worksheet:
+  name: CC_Time_Series_Forecasting
+  tables:
+  - name: CONCATENATED_DF
+  - name: CUSTOM_CALENDAR
+  - name: FORECAST_RESULTS_6MONTHS
+  - name: NEWRETAIL_PROMOTION_DIMENSION_CC
+  - name: NEWRETAIL_SALES_AND_BASKETS_FACT
+  - name: NewRetail_Customer_Dimension
+  - name: NewRetail_Product_Dimension
+  - name: NewRetail_Store_Dimension
+  - name: TEST_RESULTS
+  joins:
+  - name: NEWRETAIL_SALES_AND_BASKETS_FACT_to_TEST_RESULTS
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: TEST_RESULTS
+    type: LEFT_OUTER
+    is_one_to_one: false
+  - name: NEWRETAIL_SALES_AND_BASKETS_FACT_to_FORECAST_RESULTS_6MONTHS
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: FORECAST_RESULTS_6MONTHS
+    type: OUTER
+    is_one_to_one: false
+  - name: CONCATENATED_DF_to_NEWRETAIL_SALES_AND_BASKETS_FACT
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: CONCATENATED_DF
+    type: OUTER
+    is_one_to_one: false
+  - name: NEWRETAIL_SALES_AND_BASKETS_FACT_to_NewRetail_Customer_Dimension
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: NewRetail_Customer_Dimension
+    type: LEFT_OUTER
+    is_one_to_one: false
+  - name: NEWRETAIL_SALES_AND_BASKETS_FACT_to_NEWRETAIL_PROMOTION_DIMENSION_CC
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: NEWRETAIL_PROMOTION_DIMENSION_CC
+    type: LEFT_OUTER
+    is_one_to_one: false
+  - name: NEWRETAIL_SALES_AND_BASKETS_FACT_to_NewRetail_Product_Dimension
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: NewRetail_Product_Dimension
+    type: LEFT_OUTER
+    is_one_to_one: false
+  - name: NEWRETAIL_SALES_AND_BASKETS_FACT_to_NewRetail_Store_Dimension
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: NewRetail_Store_Dimension
+    type: INNER
+    is_one_to_one: false
+  - name: CUSTOM_CALENDAR_to_NEWRETAIL_SALES_AND_BASKETS_FACT
+    source: NEWRETAIL_SALES_AND_BASKETS_FACT
+    destination: CUSTOM_CALENDAR
+    type: OUTER
+    is_one_to_one: false
+  table_paths:
+  - id: CONCATENATED_DF_1
+    table: CONCATENATED_DF
+    join_path:
+    - join:
+      - CONCATENATED_DF_to_NEWRETAIL_SALES_AND_BASKETS_FACT
+  - id: CUSTOM_CALENDAR_1
+    table: CUSTOM_CALENDAR
+    join_path:
+    - join:
+      - CUSTOM_CALENDAR_to_NEWRETAIL_SALES_AND_BASKETS_FACT
+  - id: FORECAST_RESULTS_6MONTHS_1
+    table: FORECAST_RESULTS_6MONTHS
+    join_path:
+    - join:
+      - NEWRETAIL_SALES_AND_BASKETS_FACT_to_FORECAST_RESULTS_6MONTHS
+  - id: NEWRETAIL_PROMOTION_DIMENSION_CC_1
+    table: NEWRETAIL_PROMOTION_DIMENSION_CC
+    join_path:
+    - join:
+      - NEWRETAIL_SALES_AND_BASKETS_FACT_to_NEWRETAIL_PROMOTION_DIMENSION_CC
+  - id: NEWRETAIL_SALES_AND_BASKETS_FACT_1
+    table: NEWRETAIL_SALES_AND_BASKETS_FACT
+    join_path:
+    - {}
+  - id: NewRetail_Customer_Dimension_1
+    table: NewRetail_Customer_Dimension
+    join_path:
+    - join:
+      - NEWRETAIL_SALES_AND_BASKETS_FACT_to_NewRetail_Customer_Dimension
+  - id: NewRetail_Product_Dimension_1
+    table: NewRetail_Product_Dimension
+    join_path:
+    - join:
+      - NEWRETAIL_SALES_AND_BASKETS_FACT_to_NewRetail_Product_Dimension
+  - id: NewRetail_Store_Dimension_1
+    table: NewRetail_Store_Dimension
+    join_path:
+    - join:
+      - NEWRETAIL_SALES_AND_BASKETS_FACT_to_NewRetail_Store_Dimension
+  - id: TEST_RESULTS_1
+    table: TEST_RESULTS
+    join_path:
+    - join:
+      - NEWRETAIL_SALES_AND_BASKETS_FACT_to_TEST_RESULTS
+  formulas:
+  - name: Age group
+    expr: "if ( [NewRetail_Customer_Dimension_1::Customer_Age] <= 10 ) then '1-10' else if ( [NewRetail_Customer_Dimension_1::Customer_Age] >= 11 and [NewRetail_Customer_Dimension_1::Customer_Age] <= 20 ) then '11-20' else if ( [NewRetail_Customer_Dimension_1::Customer_Age] >= 21 and [NewRetail_Customer_Dimension_1::Customer_Age] <= 30 ) then '21-30' else if ( [NewRetail_Customer_Dimension_1::Customer_Age] >= 31 and [NewRetail_Customer_Dimension_1::Customer_Age] <= 40 ) then '31-40' else if ( [NewRetail_Customer_Dimension_1::Customer_Age] >= 41 and [NewRetail_Customer_Dimension_1::Customer_Age] <= 50 ) then '41-50' else if ( [NewRetail_Customer_Dimension_1::Customer_Age] >= 51 and [NewRetail_Customer_Dimension_1::Customer_Age] <= 60 ) then '51-60' else if ( [NewRetail_Customer_Dimension_1::Customer_Age] >= 61 and [NewRetail_Customer_Dimension_1::Customer_Age] <= 70 ) then '61-70' else if ( [NewRetail_Customer_Dimension_1::Customer_Age] >= 71 and [NewRetail_Customer_Dimension_1::Customer_Age] <= 80 ) then '71-80' else 'above 80'"
+    was_auto_generated: false
+  - name: Average profit per transaction
+    expr: "sum ( [NEWRETAIL_SALES_AND_BASKETS_FACT_1::Gross_Profit_Dollar_Amount] ) / [Number of purchases]"
+    was_auto_generated: false
+  - name: Number of purchases
+    expr: "count ( [NEWRETAIL_SALES_AND_BASKETS_FACT_1::Transaction_Type] = 'purchase' )"
+    was_auto_generated: false
+  - name: Promotion_Period
+    expr: "if ( [CUSTOM_CALENDAR_1::T_DATE] >= [NEWRETAIL_PROMOTION_DIMENSION_CC_1::NEW_START_DATE] and [CUSTOM_CALENDAR_1::T_DATE] <= [NEWRETAIL_PROMOTION_DIMENSION_CC_1::NEW_END_DATE] ) then [CUSTOM_CALENDAR_1::T_DATE] else 01/01/2013"
+    was_auto_generated: false
+  - name: Sales forecast
+    expr: "ifnull ( [NEWRETAIL_SALES_AND_BASKETS_FACT_1::Sales_Quantity] , [FORECAST_RESULTS_6MONTHS_1::PREDICTION] )"
+    was_auto_generated: false
+  - name: Top_5_departments_based_on_sales
+    expr: "if ( [Department_rank_based_on_sales] >= 1 and [Department_rank_based_on_sales] <= 5 ) then [NewRetail_Product_Dimension_1::Department_Key] else 'other'"
+    was_auto_generated: false
+  - name: Department_rank_based_on_sales
+    expr: "group_aggregate ( rank ( sum ( [NEWRETAIL_SALES_AND_BASKETS_FACT_1::Sales_Quantity] ) , 'desc' ) , { [NewRetail_Product_Dimension_1::Department_Key] } , query_filters ( ) )"
+    was_auto_generated: false
+  - name: date_formula
+    expr: "add_days ( [CUSTOM_CALENDAR_1::T_DATE] , diff_days ( today ( ) , 12/31/2017 ) )"
+    was_auto_generated: false
+  - name: Sales forecast categories
+    expr: "ifnull ( [NEWRETAIL_SALES_AND_BASKETS_FACT_1::Sales_Quantity] , [CONCATENATED_DF_1::Sales_Quantity] )"
+    was_auto_generated: false
+  - name: range_end
+    expr: 12/31/2017
+    was_auto_generated: false
+  - name: range_start
+    expr: 11/01/2013
+    was_auto_generated: false
+  worksheet_columns:
+  - name: Customer City
+    column_id: NewRetail_Customer_Dimension_1::Customer_City
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Customer Town
+      - Customer Village
+      synonym_type: AUTO_GENERATED
+  - name: Customer State
+    column_id: NewRetail_Customer_Dimension_1::Customer_State
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Customer Location
+      - Customer Province
+      synonym_type: AUTO_GENERATED
+  - name: Customer Age
+    column_id: NewRetail_Customer_Dimension_1::Customer_Age
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Customer Generation
+      - Customer Demographic
+      synonym_type: AUTO_GENERATED
+  - name: Annual Income
+    column_id: NewRetail_Customer_Dimension_1::Annual_Income
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Yearly Revenue
+      - Yearly Earnings
+      synonym_type: AUTO_GENERATED
+  - name: Occupation
+    column_id: NewRetail_Customer_Dimension_1::Occupation
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Profession
+      - Vocation
+      synonym_type: AUTO_GENERATED
+  - name: Customer Since
+    column_id: NewRetail_Customer_Dimension_1::Customer_Since
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Customer Start Date
+      - Customer Start Time
+      synonym_type: AUTO_GENERATED
+  - name: Customer Zip Code
+    column_id: NewRetail_Customer_Dimension_1::Customer_Zip_Code
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Customer Postal Code
+      - Customer Zipcode
+      synonym_type: AUTO_GENERATED
+  - name: Department Name
+    column_id: NewRetail_Product_Dimension_1::Department_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Department Label
+      - Department Title
+      - item type
+      synonym_type: USER_DEFINED
+  - name: Basket Key
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Basket_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Basket Code
+      - Basket ID
+      synonym_type: AUTO_GENERATED
+  - name: Pos Transaction Number
+    description: contains transaction number
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::POS_Transaction_Number
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Point of Sale Transaction Number
+      - Point of Sale Transaction ID
+      synonym_type: AUTO_GENERATED
+  - name: Product Key
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Product_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Product Code
+      - Product ID
+      synonym_type: AUTO_GENERATED
+  - name: Product Cost Key
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Product_Cost_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Product Cost Identifier
+      - Product Cost Code
+      synonym_type: AUTO_GENERATED
+  - name: Sales Quantity
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Sales_Quantity
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Sales Volume
+      - Sales Count
+      synonym_type: AUTO_GENERATED
+  - name: Sales Dollar Amount
+    description: Sales amount in Dollars
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Sales_Dollar_Amount
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Sales Value
+      - Sales Sum
+      synonym_type: AUTO_GENERATED
+  - name: Cost Dollar Amount
+    description: cost amount in dollars
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Cost_Dollar_Amount
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Cost Value
+      - Cost Price
+      synonym_type: AUTO_GENERATED
+  - name: Gross Profit Dollar Amount
+    description: profit amount in dollars
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Gross_Profit_Dollar_Amount
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Gross Profit Value
+      - Gross Profit Sum
+      synonym_type: AUTO_GENERATED
+  - name: Promotion Key
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Promotion_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Promo Key
+      - Promotional Key
+      synonym_type: AUTO_GENERATED
+  - name: Diet Key
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Diet_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Diet Identifier
+      - Diet Code
+      synonym_type: AUTO_GENERATED
+  - name: Store Key
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Store_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Store Code
+      - Store ID
+      synonym_type: AUTO_GENERATED
+  - name: Customer Key
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Customer_Key
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Client Key
+      - Client ID
+      synonym_type: AUTO_GENERATED
+  - name: Transaction Type
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Transaction_Type
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Transaction Kind
+      - Transaction Mode
+      synonym_type: AUTO_GENERATED
+  - name: Transaction Date
+    description: Custom calendar is mapped to these dates to show both actual and forecasted dates in one chart from single column
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Transaction_Date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Transaction Day
+      - Transaction Time
+      calendar: calendar
+      is_hidden: true
+      synonym_type: AUTO_GENERATED
+  - name: Tender Type
+    description: Type of payment
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::Tender_Type
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Payment Mode
+      - Payment Method
+      synonym_type: AUTO_GENERATED
+  - name: Category
+    description: Category of Goods
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::CATEGORY
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Classification
+      - Grouping
+      synonym_type: AUTO_GENERATED
+  - name: Product Name
+    column_id: NEWRETAIL_SALES_AND_BASKETS_FACT_1::PRODUCT_NAME
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Product Title
+      - Product Label
+      synonym_type: AUTO_GENERATED
+  - name: Store Name
+    column_id: NewRetail_Store_Dimension_1::Store_Name
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Store Title
+      - Store Label
+      synonym_type: AUTO_GENERATED
+  - name: Store Address
+    column_id: NewRetail_Store_Dimension_1::Store_Address
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Store Spot
+      - Store Site
+      synonym_type: AUTO_GENERATED
+  - name: Store City
+    column_id: NewRetail_Store_Dimension_1::Store_City
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Store Town
+      - Store Village
+      synonym_type: AUTO_GENERATED
+  - name: Store State
+    column_id: NewRetail_Store_Dimension_1::Store_State
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Store Territory
+      synonym_type: AUTO_GENERATED
+  - name: Store Region
+    column_id: NewRetail_Store_Dimension_1::Store_Region
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Store Area
+      - Store Division
+      synonym_type: AUTO_GENERATED
+  - name: Store Zip Code
+    column_id: NewRetail_Store_Dimension_1::Store_Zip_Code
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Store Postal Code
+      - Store Zipcode
+      synonym_type: AUTO_GENERATED
+  - name: Store County
+    column_id: NewRetail_Store_Dimension_1::Store_County
+    properties:
+      column_type: ATTRIBUTE
+  - name: Latitude
+    column_id: NewRetail_Store_Dimension_1::Latitude
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Latitudinal Position
+      - Latitudinal Coordinate
+      is_additive: true
+      geo_config:
+        latitude: true
+      synonym_type: AUTO_GENERATED
+  - name: Longitude
+    column_id: NewRetail_Store_Dimension_1::Longitude
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Longitudinal Coordinates
+      - Longitudinal Position
+      is_additive: true
+      geo_config:
+        longitude: true
+      synonym_type: AUTO_GENERATED
+  - name: Prediction
+    description: These are predicted sales Values (used in compairing actual and predicted sales quantity values generated by the model)
+    column_id: TEST_RESULTS_1::Forecasted(yhat)
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Predication
+      synonym_type: AUTO_GENERATED
+  - name: custom calendar date
+    description: "Used in formula \"Date / Date_formula) which converts last date in data to todays date, also these column helps in creating visual for forecasted data"
+    column_id: CUSTOM_CALENDAR_1::T_DATE
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - custom day
+      - custom time
+      calendar: calendar
+      is_hidden: true
+      synonym_type: AUTO_GENERATED
+  - name: Future Results
+    description: used in formula "Sales forecast" in combination with actual sales values
+    column_id: FORECAST_RESULTS_6MONTHS_1::PREDICTION
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Number of purchases
+    description: "Total number of transactions where type = purchase, this is to separate purchase and return transactions"
+    formula_id: Number of purchases
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Average profit per transaction
+    description: Average profit per each transaction
+    formula_id: Average profit per transaction
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Department rank based on sales
+    description: Ranks the department based on total sales quantity
+    formula_id: Department_rank_based_on_sales
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Top 5 departments based on sales
+    description: Top 5 departments based on the formula "Department rank based on sales
+    formula_id: Top_5_departments_based_on_sales
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Top 5 Sales Departments
+      - Top 5 Revenue Departments
+      synonym_type: AUTO_GENERATED
+  - name: Age group
+    formula_id: Age group
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Promotion_Period
+    formula_id: Promotion_Period
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Promotion Duration
+      - Promotion Span
+      calendar: calendar
+      is_hidden: true
+      synonym_type: AUTO_GENERATED
+  - name: Date
+    description: Converts dates to live dates ( considers last date of the data as todays date)
+    formula_id: date_formula
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Date
+      calendar: calendar
+      synonym_type: USER_DEFINED
+  - name: Sales forecast
+    description: combines actual sales quantity data and forecasted data to show actual and forecasted in on chart
+    formula_id: Sales forecast
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Sales Projection
+      - Projection
+      - Sales Prediction
+      synonym_type: AUTO_GENERATED
+  properties:
+    is_bypass_rls: false
+    join_progressive: true
+  parameters:
+  - id: 9169b8b0-af62-419b-9494-4f1eae341a11
+    name: Sales Growth
+    data_type: INT64
+    default_value: "1"
+  action_object_associations:
+  - action_name: Run Snowpark Forecasting
+    context: PRIMARY
+    enabled: true

@@ -1,0 +1,9 @@
+{
+    "account"   : "ADD YOUR SNOWFLAKE ACCOUNT NAME ",
+    "user"      : "***********",
+    "password"  : "***********",
+    "role"      : "USER_ROLE",
+    "warehouse" : "WAREHOUSE_NAME",
+    "database"  : "DBNAME",
+    "schema"    : "PUBLIC"
+  }

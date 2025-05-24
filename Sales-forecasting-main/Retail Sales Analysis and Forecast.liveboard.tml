@@ -1,0 +1,963 @@
+guid: 8e0058bd-b374-45b1-8077-780ca2120c38
+liveboard:
+  name: Retail Sales Analysis and Forecast
+  visualizations:
+  - id: Viz_1
+    answer:
+      name: Tender Type
+      description: "This chart visually breaks down transaction types, revealing the distribution of payment methods used by customers."
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Tender Type] [Sales Dollar Amount] [Tender Type] != '{Null}'"
+      answer_columns:
+      - name: Tender Type
+      - name: Total Sales Dollar Amount
+      table:
+        table_columns:
+        - column_id: Tender Type
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Sales Dollar Amount
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Tender Type
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: PIE
+        chart_columns:
+        - column_id: Tender Type
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Tender Type
+          "y":
+          - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Tender Type\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"53e0b882-8800-4ec7-b629-56d23480adb4\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"87a22573-b551-4984-bdc2-4b5de7ea37f8\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Tender Type\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#8C62F5\"},{\"serieName\": \"{null}\",\"color\": \"#06BF7F\"},{\"serieName\": \"cash\",\"color\": \"#FCC838\"},{\"serieName\": \"check\",\"color\": \"#82DFE9\"},{\"serieName\": \"credit\",\"color\": \"#48D1E0\"},{\"serieName\": \"debit\",\"color\": \"#71A1F4\"},{\"serieName\": \"other\",\"color\": \"#2E75F0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 1c3b0908-2d59-42c6-9cb2-0dbc6c4476e4
+  - id: Viz_2
+    answer:
+      name: Total Transactions
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "count [Transaction Type] [Transaction Type] != '{null}'"
+      answer_columns:
+      - name: Number of Transaction Type
+      table:
+        table_columns:
+        - column_id: Number of Transaction Type
+          headline_aggregation: AVERAGE
+        ordered_column_ids:
+        - Number of Transaction Type
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"columnProperties\": [{\"columnId\": \"Number of Transaction Type\",\"columnProperty\": {}}]}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Number of Transaction Type
+        axis_configs:
+        - "y":
+          - Number of Transaction Type
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Number of Transaction Type\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"e639334c-5db8-4f68-9055-f78e90ccd9f8\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Transaction Type\"],\"isOpposite\": false}},{\"id\": \"9748fc25-5b6a-44fa-9975-9ae6129571a3\",\"properties\": {\"axisType\": \"X\"}}]}"
+      display_mode: CHART_MODE
+    viz_guid: de439de7-41ee-490a-99e3-83ec70c44a8a
+  - id: Viz_3
+    answer:
+      name: Average Profit Per Unit Transaction
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Average profit per transaction]"
+      answer_columns:
+      - name: Average profit per transaction
+        format:
+          category: CURRENCY
+          currencyFormatConfig:
+            locale: USD
+            unit: AUTO
+            decimals: 2.0
+            toSeparateThousands: true
+          isCategoryEditable: true
+      table:
+        table_columns:
+        - column_id: Average profit per transaction
+          headline_aggregation: TABLE_AGGR
+        ordered_column_ids:
+        - Average profit per transaction
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"columnProperties\": [{\"columnId\": \"Average profit per transaction\",\"columnProperty\": {}}]}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Average profit per transaction
+        axis_configs:
+        - "y":
+          - Average profit per transaction
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Average profit per transaction\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"8d679fd1-f01d-4ce5-9ddc-0fa6222a3258\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Average profit per transaction\"],\"isOpposite\": false}},{\"id\": \"06e20e33-4a06-4ba3-90ce-396ebb32b352\",\"properties\": {\"axisType\": \"X\"}}]}"
+      display_mode: CHART_MODE
+    viz_guid: 46e559bf-6e92-4e3c-8106-795a0ab804a4
+  - id: Viz_4
+    answer:
+      name: Top 10 High-Performing Retail Outlets
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Sales Dollar Amount] top 10 [Store Name]"
+      answer_columns:
+      - name: Total Sales Dollar Amount
+      - name: Store Name
+      table:
+        table_columns:
+        - column_id: Store Name
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Store Name
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: BAR
+        chart_columns:
+        - column_id: Store Name
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Store Name
+          "y":
+          - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Store Name\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"f86dd70f-a7f8-4925-afbe-119097b09a75\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"fa9cfe99-a999-417a-8645-152b8bacdcdc\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Store Name\"]}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#48D1E0\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#FF8142\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 38760bf8-a2a8-416d-a8ba-89dda5b96853
+  - id: Viz_5
+    answer:
+      name: Revenue and Profit Comparison of Top 10 High-Performing Retail Outlets
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Gross Profit Dollar Amount] [Store Name] sort by [Gross Profit Dollar Amount] descending top 10 [Sales Dollar Amount]"
+      answer_columns:
+      - name: Total Gross Profit Dollar Amount
+      - name: Store Name
+      - name: Total Sales Dollar Amount
+      table:
+        table_columns:
+        - column_id: Store Name
+          show_headline: false
+        - column_id: Total Gross Profit Dollar Amount
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Store Name
+        - Total Gross Profit Dollar Amount
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: BAR
+        chart_columns:
+        - column_id: Store Name
+        - column_id: Total Gross Profit Dollar Amount
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Store Name
+          "y":
+          - Total Gross Profit Dollar Amount
+          - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Store Name\",\"columnProperty\": {}},{\"columnId\": \"Total Gross Profit Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"53964919-10d0-4438-ad1c-3c7037d741a2\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Store Name\"]}},{\"id\": \"124ecf57-d75b-4317-9529-debc20943a11\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Gross Profit Dollar Amount\",\"Total Sales Dollar Amount\"],\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"Total Gross Profit Dollar Amount\",\"color\": \"#48D1E0\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#2E75F0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 827ef8d1-0a4f-4650-ab1b-44301ae706e4
+  - id: Viz_6
+    answer:
+      name: "Sales & Profit Analysis: Top 5 Performing Cities"
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Sales Dollar Amount] [Store City] top 5 [Gross Profit Dollar Amount]"
+      answer_columns:
+      - name: Total Sales Dollar Amount
+      - name: Store City
+      - name: Total Gross Profit Dollar Amount
+      table:
+        table_columns:
+        - column_id: Store City
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        - column_id: Total Gross Profit Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Store City
+        - Total Sales Dollar Amount
+        - Total Gross Profit Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: STACKED_COLUMN
+        chart_columns:
+        - column_id: Store City
+        - column_id: Total Sales Dollar Amount
+        - column_id: Total Gross Profit Dollar Amount
+        axis_configs:
+        - x:
+          - Store City
+          "y":
+          - Total Sales Dollar Amount
+          - Total Gross Profit Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": false,\"allLabels\": false},\"columnProperties\": [{\"columnId\": \"Store City\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Total Gross Profit Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"248300e9-cc30-496e-b2b1-262809cb57c8\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\",\"Total Gross Profit Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"9581158f-b85a-4990-b250-0acb5badd9c7\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Store City\"]}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#06BF7F\"},{\"serieName\": \"Total Gross Profit Dollar Amount\",\"color\": \"#FCC838\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#48D1E0\"},{\"serieName\": \"Total Gross Profit Dollar Amount\",\"color\": \"#2E75F0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 433bd490-a156-4d6b-8fb6-3b085c64564e
+  - id: Viz_7
+    answer:
+      name: "City Sales Analysis: Top 5 Performing Departments"
+      description: "This chart showcases the top-performing departments in city-wide sales analysis,"
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Department rank based on sales] [Top 5 departments based on sales] [Store City] [Sales Quantity] sort by [Sales Quantity] descending [Top 5 departments based on sales] != [Top 5 departments based on sales].other [Top 5 departments based on sales].{Null}"
+      answer_columns:
+      - name: Department rank based on sales
+      - name: Top 5 departments based on sales
+      - name: Store City
+      - name: Total Sales Quantity
+      table:
+        table_columns:
+        - column_id: Department rank based on sales
+          show_headline: false
+        - column_id: Top 5 departments based on sales
+          show_headline: false
+        - column_id: Store City
+          show_headline: false
+        - column_id: Total Sales Quantity
+          show_headline: false
+        ordered_column_ids:
+        - Department rank based on sales
+        - Top 5 departments based on sales
+        - Store City
+        - Total Sales Quantity
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: STACKED_COLUMN
+        chart_columns:
+        - column_id: Department rank based on sales
+        - column_id: Top 5 departments based on sales
+        - column_id: Store City
+        - column_id: Total Sales Quantity
+        axis_configs:
+        - x:
+          - Store City
+          "y":
+          - Total Sales Quantity
+          color:
+          - Top 5 departments based on sales
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"axisExtremes\": {\"x\": [{\"min\": 0.0,\"max\": 9.454271961492218}],\"y\": [{\"min\": 0.0,\"max\": 125000.0}]},\"isZoomed\": true,\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Department rank based on sales\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Top 5 departments based on sales\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Store City\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Total Sales Quantity\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"245939dc-0456-4250-b09b-9dc0e28c04b5\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Quantity\"],\"isOpposite\": false}},{\"id\": \"b75df778-72e8-4280-9135-3d9bf02a8d31\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Store City\"]}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"Total Sales Quantity\",\"color\": \"#8C62F5\"},{\"serieName\": \"bakery\",\"color\": \"#06BF7F\"},{\"serieName\": \"canned goods\",\"color\": \"#FCC838\"},{\"serieName\": \"dairy\",\"color\": \"#48D1E0\"},{\"serieName\": \"frozen goods\",\"color\": \"#71A1F4\"},{\"serieName\": \"produce\",\"color\": \"#2E75F0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 5ed2d2a4-a6d3-4e07-81b7-b8dc1dbd9cff
+  - id: Viz_8
+    answer:
+      name: Sales Distribution by Departments
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Sales Dollar Amount] [Department Name] [Department Name] != '{Null}'"
+      answer_columns:
+      - name: Total Sales Dollar Amount
+        format:
+          category: CURRENCY
+          currencyFormatConfig:
+            locale: USD
+            unit: AUTO
+            decimals: 2.0
+            toSeparateThousands: true
+          isCategoryEditable: true
+      - name: Department Name
+      table:
+        table_columns:
+        - column_id: Department Name
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Department Name
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Department Name
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Department Name
+          "y":
+          - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Department Name\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"39599f65-56cf-4932-ae23-bd73f07185fb\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"235998e5-a064-4d17-af8f-dd42fc38236b\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Department Name\"]}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#48D1E0\"},{\"serieName\": \"return\",\"color\": \"#FCC838\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#2E75F0\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#48D1E0\"},{\"serieName\": \"return\",\"color\": \"#FCC838\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#FF8142\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 74c17c10-4b56-49e0-8166-4d4fbbc3b287
+  - id: Viz_9
+    answer:
+      name: Top 5 Departments with the Highest Return Rates
+      description: "This chart identifies and ranks the five departments with the highest return rates, highlighting areas for improvement in product quality or customer satisfaction."
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Transaction Type] [Department Name] [Sales Quantity] [Transaction Type] != [Transaction Type].Purchase [Transaction Type].{Null} sort by [Sales Quantity] descending [Department Name] != '{Null}' top 5"
+      answer_columns:
+      - name: Transaction Type
+      - name: Department Name
+      - name: Total Sales Quantity
+      table:
+        table_columns:
+        - column_id: Transaction Type
+          show_headline: false
+        - column_id: Department Name
+          show_headline: false
+        - column_id: Total Sales Quantity
+          show_headline: false
+        ordered_column_ids:
+        - Transaction Type
+        - Department Name
+        - Total Sales Quantity
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: STACKED_COLUMN
+        chart_columns:
+        - column_id: Transaction Type
+        - column_id: Department Name
+        - column_id: Total Sales Quantity
+        axis_configs:
+        - x:
+          - Department Name
+          "y":
+          - Total Sales Quantity
+          color:
+          - Transaction Type
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Transaction Type\",\"columnProperty\": {}},{\"columnId\": \"Department Name\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Quantity\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"60b2e27c-262e-49ea-b668-2c89ef4ac0f5\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Quantity\"],\"isOpposite\": false}},{\"id\": \"b743286f-31f2-4b00-bd16-41bb7fe65629\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Department Name\"]}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#48D1E0\"},{\"serieName\": \"return\",\"color\": \"#FCC838\"},{\"serieName\": \"bd275fb3-e1ac-478c-a286-e3e68b1bd851\",\"color\": \"#2E75F0\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#48D1E0\"},{\"serieName\": \"return\",\"color\": \"#FCC838\"},{\"serieName\": \"bd275fb3-e1ac-478c-a286-e3e68b1bd851\",\"color\": \"#FF8142\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 12ac5aa0-adbd-4be5-b36c-d955fd737871
+  - id: Viz_10
+    answer:
+      name: Geographic Sales Breakdown by State
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Sales Dollar Amount] [Latitude] [Longitude] [Store State]"
+      answer_columns:
+      - name: Total Sales Dollar Amount
+      - name: Latitude
+      - name: Longitude
+      - name: Store State
+      table:
+        table_columns:
+        - column_id: Latitude
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Longitude
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Store State
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Sales Dollar Amount
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Latitude
+        - Longitude
+        - Store State
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: GEO_AREA
+        chart_columns:
+        - column_id: Latitude
+        - column_id: Longitude
+        - column_id: Store State
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Store State
+          "y":
+          - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"mapviewport\": {\"center\": [-1.1247601606109738E7,4606564.00124756],\"zoomLevel\": 4.399477211997955,\"extent\": [-1.5097298160325062E7,2596414.162726649,-7397905.051894415,6616713.83976847]},\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {}},{\"columnId\": \"Latitude\",\"columnProperty\": {}},{\"columnId\": \"Longitude\",\"columnProperty\": {}},{\"columnId\": \"Store State\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"e7802435-e105-4ebb-86ed-3692fde62f1b\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"fe14ce72-7673-4b73-8d7a-1a62be193ac2\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Store State\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#F04152\"}],\"systemMultiColorSeriesColors\": [{\"serieName\": \"Total Sales Dollar Amount\",\"colorMap\": [{\"serieName\": \"Store State\",\"color\": [\"#ffffb2\",\"#fddd87\",\"#fba35d\",\"#f75534\",\"#f9140a\",\"#d70315\",\"#b10026\"]}]}]}"
+      display_mode: CHART_MODE
+    viz_guid: e64d67a1-dd42-4adc-aab9-210d349a7bee
+  - id: Viz_11
+    answer:
+      name: Revenue Contribution by Customer Age Groups
+      description: "This chart illustrates the revenue distribution across various customer age groups, providing insights into customer demographics' impact on revenue."
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Age group] [Sales Dollar Amount]"
+      answer_columns:
+      - name: Age group
+      - name: Total Sales Dollar Amount
+        format:
+          category: CURRENCY
+          currencyFormatConfig:
+            locale: USD
+            unit: AUTO
+            decimals: 2.0
+            toSeparateThousands: true
+          isCategoryEditable: true
+      table:
+        table_columns:
+        - column_id: Age group
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Age group
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Age group
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Age group
+          "y":
+          - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Age group\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"2d13da8e-c81e-4604-9613-b141adacdb17\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"f3949e1b-b31d-46a5-a8be-a73d5ed6738c\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Age group\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 30aa7fec-5e3b-44a2-9e93-9b7c0cb54bcd
+  - id: Viz_12
+    answer:
+      name: Monthly Sales Quantity Projection
+      description: "This chart displays projected daily sales quantities, aiding in future sales forecasting and planning."
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      formulas:
+      - id: Sales Pred
+        name: Sales Pred
+        expr: "if ( [Date] > ( 11/01/2023 ) ) then ( 1 + [Sales Growth] / 100 ) * ifnull ( [Sales Quantity] , [Future Results] ) else ifnull ( [Sales Quantity] , [Future Results] )"
+        was_auto_generated: false
+      search_query: "[Date] [Date].daily [Date] on or after 'last 6 months' [Sales Pred]"
+      answer_columns:
+      - name: Day(Date)
+      - name: Total Sales Pred
+      table:
+        table_columns:
+        - column_id: Day(Date)
+          headline_aggregation: MIN-MAX
+        - column_id: Total Sales Pred
+          headline_aggregation: TABLE_AGGR
+        ordered_column_ids:
+        - Day(Date)
+        - Total Sales Pred
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Day(Date)
+        - column_id: Total Sales Pred
+        axis_configs:
+        - x:
+          - Day(Date)
+          "y":
+          - Total Sales Pred
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {\"xGridlineEnabled\": false,\"yGridlineEnabled\": false},\"responsiveLayoutPreference\": \"AUTO_ON\",\"showLinearRegressionLine\": false,\"chartSpecific\": {\"markersEnabled\": false,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Day(Date)\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Pred\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"39c6395b-884a-4b17-a069-8c30dc8e2fd7\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Pred\"],\"isOpposite\": false}},{\"id\": \"e1c157f6-1484-4de6-bc8b-97f4c7211bfb\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Day(Date)\"]}}],\"seriesColors\": [{\"serieName\": \"aug 2023\",\"color\": \"#2E75F0\"},{\"serieName\": \"sep 2023\",\"color\": \"#48D1E0\"},{\"serieName\": \"oct 2023\",\"color\": \"#FCC838\"},{\"serieName\": \"nov 2023\",\"color\": \"#06BF7F\"},{\"serieName\": \"dec 2023\",\"color\": \"#8C62F5\"},{\"serieName\": \"jan 2024\",\"color\": \"#FF8142\"},{\"serieName\": \"feb 2024\",\"color\": \"#ABC7F9\"},{\"serieName\": \"mar 2024\",\"color\": \"#B5ECF2\"},{\"serieName\": \"apr 2024\",\"color\": \"#FDE9AF\"},{\"serieName\": \"cf110b9b-0170-4eac-8e00-8f66daf015fd\",\"color\": \"#48D1E0\"},{\"serieName\": \"daa7d4f7-e7a1-426f-8c4f-01fc1924664a\",\"color\": \"#48D1E0\"}],\"systemSeriesColors\": [{\"serieName\": \"aug 2023\",\"color\": \"#2E75F0\"},{\"serieName\": \"sep 2023\",\"color\": \"#48D1E0\"},{\"serieName\": \"oct 2023\",\"color\": \"#FCC838\"},{\"serieName\": \"nov 2023\",\"color\": \"#06BF7F\"},{\"serieName\": \"dec 2023\",\"color\": \"#8C62F5\"},{\"serieName\": \"jan 2024\",\"color\": \"#FF8142\"},{\"serieName\": \"feb 2024\",\"color\": \"#ABC7F9\"},{\"serieName\": \"mar 2024\",\"color\": \"#B5ECF2\"},{\"serieName\": \"apr 2024\",\"color\": \"#FDE9AF\"},{\"serieName\": \"cf110b9b-0170-4eac-8e00-8f66daf015fd\",\"color\": \"#48D1E0\"},{\"serieName\": \"daa7d4f7-e7a1-426f-8c4f-01fc1924664a\",\"color\": \"#48D1E0\"},{\"serieName\": \"Total Sales Pred\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+      parameter_values:
+      - key: Sales Growth
+        value: "11"
+    viz_guid: 016dced7-11d7-4b4b-99cc-82a7c589172e
+  - id: Viz_13
+    answer:
+      name: Overall Sales
+      description: This chart provides a summary of total sales over a specified period.
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Sales Dollar Amount] [Date] [Date].monthly sort by [Date] [Date] before 'this month'"
+      answer_columns:
+      - name: Total Sales Dollar Amount
+      - name: Month(Date)
+      table:
+        table_columns:
+        - column_id: Month(Date)
+          headline_aggregation: MIN-MAX
+        - column_id: Total Sales Dollar Amount
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Month(Date)
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Month(Date)
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Month(Date)
+          "y":
+          - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {}},{\"columnId\": \"Month(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"c5783539-6534-41aa-a413-2309abe3a1fb\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"0e84917e-0eeb-4ae1-b2a7-a5d21216f716\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Month(Date)\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#2770ef\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 1d8c72b2-140d-4846-96c3-2eaead674fca
+  - id: Viz_14
+    answer:
+      name: Sales Growth Yearly
+      description: This chart illustrates the annual growth trends in sales over the specified time period.
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Date] [Date].yearly [Sales Dollar Amount] [Transaction Type] [Transaction Type] = 'Purchase'"
+      answer_columns:
+      - name: Year(Date)
+      - name: Total Sales Dollar Amount
+      - name: Transaction Type
+      table:
+        table_columns:
+        - column_id: Year(Date)
+          headline_aggregation: MIN-MAX
+        - column_id: Transaction Type
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total Sales Dollar Amount
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Year(Date)
+        - Transaction Type
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"widthState\": [{\"columnId\": \"Transaction Type\",\"width\": 146.66390380859374}]}"
+      chart:
+        type: WATERFALL
+        chart_columns:
+        - column_id: Year(Date)
+        - column_id: Transaction Type
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Year(Date)
+          "y":
+          - Total Sales Dollar Amount
+          color:
+          - Transaction Type
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Transaction Type\",\"columnProperty\": {}},{\"columnId\": \"Year(Date)\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"73d3fb52-0e3b-4208-a585-2746ca2075aa\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"14ce8491-42a1-4c6a-826f-b8d611e98278\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Year(Date)\"],\"name\": \"Date\"}}],\"seriesColors\": [{\"serieName\": \"{null}\",\"color\": \"#2E75F0\"},{\"serieName\": \"return\",\"color\": \"#FCC838\"},{\"serieName\": \"purchase\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 4f98279b-a750-4c84-8467-abac11db87c7
+  - id: Viz_15
+    answer:
+      name: Overall Gross Profit
+      description: "This chart offers a snapshot of the cumulative gross profit, providing insights into financial performance."
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Date] [Date].monthly [Gross Profit Dollar Amount] [Date] before 'this month'"
+      answer_columns:
+      - name: Month(Date)
+      - name: Total Gross Profit Dollar Amount
+      table:
+        table_columns:
+        - column_id: Month(Date)
+          show_headline: false
+        - column_id: Total Gross Profit Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Month(Date)
+        - Total Gross Profit Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Month(Date)
+        - column_id: Total Gross Profit Dollar Amount
+        axis_configs:
+        - x:
+          - Month(Date)
+          "y":
+          - Total Gross Profit Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Month(Date)\",\"columnProperty\": {}},{\"columnId\": \"Total Gross Profit Dollar Amount\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"78257681-f849-4743-a3fd-6c67e2051e6f\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Gross Profit Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"87ed9da8-9080-43ce-9505-47eaf1b57fdf\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Month(Date)\"]}}],\"systemSeriesColors\": [{\"serieName\": \"be872483-77e3-4bee-9819-c63a22cd8fb3\",\"color\": \"#8C62F5\"},{\"serieName\": \"{null}\",\"color\": \"#06BF7F\"},{\"serieName\": \"cash\",\"color\": \"#FCC838\"},{\"serieName\": \"check\",\"color\": \"#82DFE9\"},{\"serieName\": \"credit\",\"color\": \"#48D1E0\"},{\"serieName\": \"debit\",\"color\": \"#71A1F4\"},{\"serieName\": \"other\",\"color\": \"#2E75F0\"},{\"serieName\": \"oct 2013\",\"color\": \"#721F27\"},{\"serieName\": \"nov 2013\",\"color\": \"#F47E89\"},{\"serieName\": \"dec 2013\",\"color\": \"#B6313E\"},{\"serieName\": \"jan 2014\",\"color\": \"#F9B3B9\"},{\"serieName\": \"feb 2014\",\"color\": \"#F04152\"},{\"serieName\": \"mar 2014\",\"color\": \"#2F3947\"},{\"serieName\": \"apr 2014\",\"color\": \"#A2ACBA\"},{\"serieName\": \"may 2014\",\"color\": \"#47515F\"},{\"serieName\": \"jun 2014\",\"color\": \"#BEC6D0\"},{\"serieName\": \"jul 2014\",\"color\": \"#747E8C\"},{\"serieName\": \"aug 2014\",\"color\": \"#7A3D1F\"},{\"serieName\": \"sep 2014\",\"color\": \"#FFA97E\"},{\"serieName\": \"oct 2014\",\"color\": \"#C26232\"},{\"serieName\": \"nov 2014\",\"color\": \"#FFCCB3\"},{\"serieName\": \"dec 2014\",\"color\": \"#FF8142\"},{\"serieName\": \"jan 2015\",\"color\": \"#422E75\"},{\"serieName\": \"feb 2015\",\"color\": \"#B094F8\"},{\"serieName\": \"mar 2015\",\"color\": \"#6A4ABA\"},{\"serieName\": \"apr 2015\",\"color\": \"#D1C0FB\"},{\"serieName\": \"may 2015\",\"color\": \"#8C62F5\"},{\"serieName\": \"jun 2015\",\"color\": \"#025B3C\"},{\"serieName\": \"jul 2015\",\"color\": \"#56D3A8\"},{\"serieName\": \"aug 2015\",\"color\": \"#049160\"},{\"serieName\": \"sep 2015\",\"color\": \"#9BE5CB\"},{\"serieName\": \"oct 2015\",\"color\": \"#06BF7F\"},{\"serieName\": \"nov 2015\",\"color\": \"#785F1A\"},{\"serieName\": \"dec 2015\",\"color\": \"#FCD977\"},{\"serieName\": \"jan 2016\",\"color\": \"#BF982A\"},{\"serieName\": \"feb 2016\",\"color\": \"#FDE9AF\"},{\"serieName\": \"mar 2016\",\"color\": \"#FCC838\"},{\"serieName\": \"apr 2016\",\"color\": \"#22636B\"},{\"serieName\": \"may 2016\",\"color\": \"#82DFE9\"},{\"serieName\": \"jun 2016\",\"color\": \"#369FAA\"},{\"serieName\": \"jul 2016\",\"color\": \"#B5ECF2\"},{\"serieName\": \"aug 2016\",\"color\": \"#48D1E0\"},{\"serieName\": \"sep 2016\",\"color\": \"#163772\"},{\"serieName\": \"oct 2016\",\"color\": \"#71A1F4\"},{\"serieName\": \"nov 2016\",\"color\": \"#2359B6\"},{\"serieName\": \"dec 2016\",\"color\": \"#ABC7F9\"},{\"serieName\": \"jan 2017\",\"color\": \"#2E75F0\"},{\"serieName\": \"feb 2017\",\"color\": \"#721F27\"},{\"serieName\": \"mar 2017\",\"color\": \"#F47E89\"},{\"serieName\": \"apr 2017\",\"color\": \"#B6313E\"},{\"serieName\": \"may 2017\",\"color\": \"#F9B3B9\"},{\"serieName\": \"jun 2017\",\"color\": \"#F04152\"},{\"serieName\": \"jul 2017\",\"color\": \"#2F3947\"},{\"serieName\": \"aug 2017\",\"color\": \"#A2ACBA\"},{\"serieName\": \"sep 2017\",\"color\": \"#47515F\"},{\"serieName\": \"oct 2017\",\"color\": \"#BEC6D0\"},{\"serieName\": \"nov 2017\",\"color\": \"#747E8C\"},{\"serieName\": \"dec 2017\",\"color\": \"#7A3D1F\"},{\"serieName\": \"797eda6c-6e66-4542-b88d-977e5675ec28\",\"color\": \"#2770ef\"},{\"serieName\": \"Total Gross Profit Dollar Amount\",\"color\": \"#2770ef\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 6f54e9a1-b16d-4917-a2b6-a340b490e0cc
+  - id: Viz_16
+    answer:
+      name: "Test Results Comparison: Actual vs. Predicted"
+      description: This chart compares actual test results with forecasted outcomes for performance evaluation of the Model.
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Date] [Date].daily [Prediction] [Sales Quantity] [Date] = 'last 91 days'"
+      answer_columns:
+      - name: Day(Date)
+      - name: Total Prediction
+      - name: Total Sales Quantity
+      table:
+        table_columns:
+        - column_id: Day(Date)
+          headline_aggregation: MIN-MAX
+        - column_id: Total Prediction
+          headline_aggregation: SUM
+        - column_id: Total Sales Quantity
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Day(Date)
+        - Total Prediction
+        - Total Sales Quantity
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Day(Date)
+        - column_id: Total Prediction
+        - column_id: Total Sales Quantity
+        axis_configs:
+        - x:
+          - Day(Date)
+          "y":
+          - Total Prediction
+          - Total Sales Quantity
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"visibleSeriesNames\": [\"Total Sales Quantity\",\"Total Prediction\"],\"axisExtremes\": {\"x\": [{\"min\": 1.69154784E12,\"max\": 1.69947936E12}],\"y\": [{\"min\": 5044.0,\"max\": 6373.3}]},\"isZoomed\": false,\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Total Prediction\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Quantity\",\"columnProperty\": {}},{\"columnId\": \"Day(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"7970e08c-4fc5-4f2c-a2b6-48c4744bf91d\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Day(Date)\"],\"name\": \"Date\"}},{\"id\": \"ded31483-61a4-48cf-ba5b-702807c21c59\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Prediction\",\"Total Sales Quantity\"],\"name\": \"Total Sales Quantity Actual and Predicted\",\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"Total Prediction\",\"color\": \"#2E75F0\"},{\"serieName\": \"Total Sales Quantity\",\"color\": \"#FF8142\"}],\"systemSeriesColors\": [{\"serieName\": \"Total Prediction\",\"color\": \"#2E75F0\"},{\"serieName\": \"Total Sales Quantity\",\"color\": \"#48D1E0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 66e24e8d-49cf-4262-a22d-c75aa13caf7a
+  - id: Viz_17
+    answer:
+      name: Monthly Sales Trend of Top 5 Retail Outlets
+      description: "This chart presents the monthly sales trends of the top 5 retail outlets, offering insights into their performance over time."
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Date] [Date].monthly [Sales Dollar Amount] [Date] before 'this month' [Store Name] [Store Name].'Baton Rouge Store #557' [Store Name].'Cranston Store #326' [Store Name].'Gastonia Store #942' [Store Name].'Jackson Store #438' [Store Name].'Orlando Store #799'"
+      answer_columns:
+      - name: Month(Date)
+      - name: Total Sales Dollar Amount
+      - name: Store Name
+      table:
+        table_columns:
+        - column_id: Month(Date)
+          show_headline: false
+        - column_id: Store Name
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Month(Date)
+        - Store Name
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Month(Date)
+        - column_id: Store Name
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Month(Date)
+          "y":
+          - Total Sales Dollar Amount
+          color:
+          - Store Name
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"axisExtremes\": {\"x\": [{\"min\": 1.569077294128302E12,\"max\": 1.6935264E12}],\"y\": [{\"min\": 3553.9937917485267,\"max\": 8963.24}]},\"isZoomed\": true,\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": false,\"allLabels\": false},\"columnProperties\": [{\"columnId\": \"Month(Date)\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {}},{\"columnId\": \"Store Name\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"4cf02351-8699-44e5-9bbe-06ab7688a1a6\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"b270541c-bf3a-4cf0-bfaf-5098f436a924\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Month(Date)\"],\"name\": \"Date\"}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"Total Sales Dollar Amount\",\"color\": \"#FCC838\"},{\"serieName\": \"baton rouge store #557\",\"color\": \"#2E75F0\"},{\"serieName\": \"cranston store #326\",\"color\": \"#48D1E0\"},{\"serieName\": \"gastonia store #942\",\"color\": \"#FCC838\"},{\"serieName\": \"jackson store #438\",\"color\": \"#06BF7F\"},{\"serieName\": \"orlando store #799\",\"color\": \"#8C62F5\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 05f6a330-fdf4-4bbf-a4ea-de5525d86625
+  - id: Viz_18
+    answer:
+      name: Sales Trends Monthly in Dollars
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Date] [Date].monthly [Transaction Type] [Sales Dollar Amount] [Transaction Type].Purchase [Date] before 'this month'"
+      answer_columns:
+      - name: Month(Date)
+      - name: Transaction Type
+      - name: Total Sales Dollar Amount
+      table:
+        table_columns:
+        - column_id: Month(Date)
+          show_headline: false
+        - column_id: Transaction Type
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Month(Date)
+        - Transaction Type
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Month(Date)
+        - column_id: Transaction Type
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Month(Date)
+          "y":
+          - Total Sales Dollar Amount
+          color:
+          - Transaction Type
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"axisExtremes\": {\"x\": [{\"min\": 1.566007776E12,\"max\": 1.697406624E12}],\"y\": [{\"min\": 417988.57,\"max\": 745193.1505}]},\"isZoomed\": false,\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Transaction Type\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Month(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"0a69d241-bab3-4ddf-a523-209e23993343\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"c38874e4-d13e-48a0-8f30-42fabce6cbe4\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Month(Date)\"],\"name\": \"Date\"}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#48D1E0\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: ed868a36-01cb-4947-86cf-60baf2e37c14
+  - id: Viz_19
+    answer:
+      name: Return Trends Monthly in Dollars
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "[Transaction Type] [Sales Dollar Amount] [Transaction Type].Return [Date] [Date].monthly [Date] before 'this month'"
+      answer_columns:
+      - name: Transaction Type
+      - name: Total Sales Dollar Amount
+      - name: Month(Date)
+      table:
+        table_columns:
+        - column_id: Transaction Type
+          show_headline: false
+        - column_id: Month(Date)
+          show_headline: false
+        - column_id: Total Sales Dollar Amount
+          show_headline: false
+        ordered_column_ids:
+        - Transaction Type
+        - Month(Date)
+        - Total Sales Dollar Amount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Transaction Type
+        - column_id: Month(Date)
+        - column_id: Total Sales Dollar Amount
+        axis_configs:
+        - x:
+          - Month(Date)
+          "y":
+          - Total Sales Dollar Amount
+          color:
+          - Transaction Type
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"axisExtremes\": {\"x\": [{\"min\": 1.566007776E12,\"max\": 1.697406624E12}],\"y\": [{\"min\": 4199.0199999999995,\"max\": 9454.060000000001}]},\"isZoomed\": false,\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Transaction Type\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Dollar Amount\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Month(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"f988a28a-ab45-41f9-a79a-593749bbc3dd\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Dollar Amount\"],\"isOpposite\": false}},{\"id\": \"11b5dc5c-8a50-4f9f-b6ff-72a3991c509c\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Month(Date)\"],\"name\": \"Date\"}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#48D1E0\"},{\"serieName\": \"return\",\"color\": \"#FCC838\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"946e4a14-d96f-45b4-97b9-e2218ccf2db8\",\"color\": \"#8C62F5\"},{\"serieName\": \"purchase\",\"color\": \"#48D1E0\"},{\"serieName\": \"return\",\"color\": \"#48D1E0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 0912294e-9185-4ccf-98a6-6f143f80f349
+  - id: Viz_20
+    answer:
+      name: Top 10 Products Sold Last Year
+      tables:
+      - id: CC_Time_Series_Forecasting
+        name: CC_Time_Series_Forecasting
+      search_query: "top 10 [Sales Quantity] [Product Key] [Product Name] [Date] [Date].monthly [Product Name] != '{Null}' [Date] = 'last 1 year'"
+      answer_columns:
+      - name: Total Sales Quantity
+      - name: Product Key
+      - name: Product Name
+      - name: Month(Date)
+      table:
+        table_columns:
+        - column_id: Product Key
+          show_headline: false
+        - column_id: Product Name
+          show_headline: false
+        - column_id: Month(Date)
+          show_headline: false
+        - column_id: Total Sales Quantity
+          show_headline: false
+        ordered_column_ids:
+        - Product Key
+        - Product Name
+        - Month(Date)
+        - Total Sales Quantity
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Product Key
+        - column_id: Product Name
+        - column_id: Month(Date)
+        - column_id: Total Sales Quantity
+        axis_configs:
+        - x:
+          - Product Name
+          "y":
+          - Total Sales Quantity
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Product Key\",\"columnProperty\": {}},{\"columnId\": \"Product Name\",\"columnProperty\": {}},{\"columnId\": \"28ca6864-2f9b-4049-827e-63519ff2d817\",\"columnProperty\": {}},{\"columnId\": \"Total Sales Quantity\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"42035ad6-4e12-4640-bd2b-de6897f9ffdd\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Sales Quantity\"],\"isOpposite\": false}},{\"id\": \"1f576959-150c-40f6-9a05-62f12c7b3b16\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Product Name\"]}}],\"seriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"Total Sales Quantity\",\"color\": \"#8C62F5\"}],\"systemSeriesColors\": [{\"serieName\": \"b7a4a65a-cad2-469c-8334-55df0f263146\",\"color\": \"#2E75F0\"},{\"serieName\": \"2a448e32-d93c-45b3-9f64-0e97a020f840\",\"color\": \"#FF8142\"},{\"serieName\": \"3d0271a0-b2c8-4ecd-84ad-9adbedc4f66b\",\"color\": \"#48D1E0\"},{\"serieName\": \"afe0c623-4f67-4300-b732-ae86e4a09536\",\"color\": \"#48D1E0\"},{\"serieName\": \"a1214ce4-e48c-4294-ba76-aecb021b7e07\",\"color\": \"#2E75F0\"},{\"serieName\": \"2d55d1b9-2423-45b9-96b8-8d0088304e38\",\"color\": \"#06BF7F\"},{\"serieName\": \"326\",\"color\": \"#FCC838\"},{\"serieName\": \"438\",\"color\": \"#06BF7F\"},{\"serieName\": \"557\",\"color\": \"#FF8142\"},{\"serieName\": \"799\",\"color\": \"#B5ECF2\"},{\"serieName\": \"942\",\"color\": \"#9BE5CB\"},{\"serieName\": \"c45e80fe-6f16-4560-aa47-5bed17f19cf2\",\"color\": \"#06BF7F\"},{\"serieName\": \"28f21b40-2fb9-4332-9755-f0a06cf6b04e\",\"color\": \"#FCC838\"},{\"serieName\": \"Total Sales Quantity\",\"color\": \"#FCC838\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: feaff50e-de40-4ae3-8311-2c5fe836e8bb
+  - id: Viz_21
+    answer:
+      name: Total Count Brand by Title
+      tables:
+      - id: WS-Beauty Product Reviews
+        name: WS-Beauty Product Reviews
+      search_query: "count [Brand] [Brand].Crest by [Title]"
+      answer_columns:
+      - name: Number of Brand
+      - name: Title
+      table:
+        table_columns:
+        - column_id: Title
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Number of Brand
+          headline_aggregation: AVERAGE
+        ordered_column_ids:
+        - Title
+        - Number of Brand
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Title
+        - column_id: Number of Brand
+        axis_configs:
+        - x:
+          - Title
+          "y":
+          - Number of Brand
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Number of Brand\",\"columnProperty\": {}},{\"columnId\": \"Title\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"8685fc63-4984-4406-bc43-13e99e48d123\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Brand\"],\"isOpposite\": false}},{\"id\": \"4340869f-2cbf-4a38-be33-8db646944451\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Title\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Number of Brand\",\"color\": \"#48D1E0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 38b9693d-6444-4bf8-a961-81784f3458b9
+  layout:
+    tiles:
+    - visualization_id: Viz_5
+      x: 6
+      "y": 12
+      height: 8
+      width: 6
+    - visualization_id: Viz_7
+      x: 8
+      "y": 26
+      height: 8
+      width: 4
+    - visualization_id: Viz_15
+      x: 9
+      "y": 0
+      height: 4
+      width: 3
+    - visualization_id: Viz_3
+      x: 0
+      "y": 10
+      height: 2
+      width: 3
+    - visualization_id: Viz_19
+      x: 0
+      "y": 39
+      height: 5
+      width: 12
+    - visualization_id: Viz_13
+      x: 0
+      "y": 0
+      height: 4
+      width: 3
+    - visualization_id: Viz_18
+      x: 0
+      "y": 34
+      height: 5
+      width: 12
+    - visualization_id: Viz_20
+      x: 4
+      "y": 26
+      height: 8
+      width: 4
+    - visualization_id: Viz_4
+      x: 0
+      "y": 12
+      height: 8
+      width: 6
+    - visualization_id: Viz_9
+      x: 6
+      "y": 44
+      height: 8
+      width: 6
+    - visualization_id: Viz_21
+      x: 0
+      "y": 60
+      height: 8
+      width: 6
+    - visualization_id: Viz_2
+      x: 0
+      "y": 8
+      height: 2
+      width: 3
+    - visualization_id: Viz_1
+      x: 6
+      "y": 0
+      height: 4
+      width: 3
+    - visualization_id: Viz_14
+      x: 3
+      "y": 0
+      height: 4
+      width: 3
+    - visualization_id: Viz_10
+      x: 0
+      "y": 52
+      height: 8
+      width: 6
+    - visualization_id: Viz_6
+      x: 0
+      "y": 26
+      height: 8
+      width: 4
+    - visualization_id: Viz_17
+      x: 0
+      "y": 20
+      height: 6
+      width: 12
+    - visualization_id: Viz_16
+      x: 3
+      "y": 8
+      height: 4
+      width: 9
+    - visualization_id: Viz_12
+      x: 0
+      "y": 4
+      height: 4
+      width: 12
+    - visualization_id: Viz_11
+      x: 6
+      "y": 52
+      height: 8
+      width: 6
+    - visualization_id: Viz_8
+      x: 0
+      "y": 44
+      height: 8
+      width: 6
+  parameter_overrides:
+  - key: 9169b8b0-af62-419b-9494-4f1eae341a11
+    value:
+      name: CC_Time_Series_Forecasting::Sales Growth
