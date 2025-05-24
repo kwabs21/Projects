@@ -47,6 +47,7 @@ https://drive.google.com/drive/folders/1Pszd3F_Ua6GL_oWoToyxMAOYUHFkm0HG?usp=sha
 <h2>Contact Information</h2>
 <h3>- Email: kntim595@gmail.com</h3>
 <h3>- Mobile: +233 555 039 682</h3>
+<h3>- Website: https://kntim-dev.github.io/Portfolio_Website/</h3>
 
 <h4>Thank you for visiting my portfolio!! If you have any questions or would like to collaborate, 
 feel free to reach out to me.</h4>
